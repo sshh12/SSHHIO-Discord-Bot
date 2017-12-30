@@ -1,0 +1,8 @@
+{
+  "name": "MyBot",
+  "version": "0.0.0",
+  "dependencies": {
+    "discord.js": "^11.2.1",
+    "node-opus": "^0.2.7"
+  }
+}
