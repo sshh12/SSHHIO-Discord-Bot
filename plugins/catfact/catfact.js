@@ -6,7 +6,7 @@ let options = {
   json: true
 };
 
-module.exports = function joke(message) {
+module.exports = function catfact(message) {
   request('https://catfact.ninja/fact', options, (err, res, body) => {
     if (err) { return; }
     message.channel.send(body.fact);

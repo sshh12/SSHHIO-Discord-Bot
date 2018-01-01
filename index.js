@@ -9,6 +9,7 @@ const settings = require('./settings.json');
 const autoreact = require('./plugins/autoreact/autoreact');
 const jokes = require('./plugins/jokes/jokes');
 const catfact = require('./plugins/catfact/catfact');
+const facts = require('./plugins/facts/facts');
 
 client.on('ready', () => {
   console.log('Connected!');
@@ -23,6 +24,8 @@ client.on('message', message => {
         jokes(message);
       } else if(message.content === '!catfact') {
         catfact(message);
+      } else if(message.content === '!fact') {
+        facts(message);
       }
 
     } else {
