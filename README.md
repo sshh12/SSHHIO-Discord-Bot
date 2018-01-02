@@ -16,6 +16,9 @@ Get a random cat fact. Uses [catfact.ninja](https://catfact.ninja)
 #### Fact
 Get a random (number) fact. Uses [numbersapi.com](http://numbersapi.com/)
 
+#### Music
+Play a song into a voice channel.
+
 ## Setup
 
 1. ```git clone https://github.com/sshh12/SSHHIO-Discord-Bot.git```
