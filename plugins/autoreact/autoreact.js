@@ -1,3 +1,4 @@
+
 const reacts = require('./autoreact.json');
 
 module.exports = function autoreact(client, message) {

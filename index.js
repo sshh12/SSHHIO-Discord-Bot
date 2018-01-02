@@ -1,4 +1,3 @@
-
 // Discord
 const Discord = require('discord.js');
 const client = new Discord.Client();
@@ -24,19 +23,19 @@ client.on('message', message => {
 
   if (settings.channels.includes(message.channel.name)) {
 
-    if(message.content.startsWith('!')) {
+    if (message.content.startsWith('!')) {
 
-      if(message.content.startsWith('!joke')) {
+      if (message.content.startsWith('!joke')) {
         jokes(message);
-      } else if(message.content.startsWith('!catfact')) {
+      } else if (message.content.startsWith('!catfact')) {
         catfact(message);
-      } else if(message.content.startsWith('!fact')) {
+      } else if (message.content.startsWith('!fact')) {
         facts(message);
-      } else if(message.content.startsWith('!play ')) {
+      } else if (message.content.startsWith('!play ')) {
         MusicPlayer.play(message);
-      } else if(message.content.startsWith('!stop')) {
+      } else if (message.content.startsWith('!stop')) {
         MusicPlayer.stop();
-      } else if(message.content.startsWith('!skip')) {
+      } else if (message.content.startsWith('!skip')) {
         MusicPlayer.skip();
       }
 
