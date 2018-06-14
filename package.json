@@ -5,6 +5,7 @@
     "discord.js": "^11.2.1",
     "node-opus": "^0.2.7",
     "request": "^2.83.0",
-    "ytdl-core": "^0.18.5"
+    "ytdl": "^0.10.1",
+    "ytdl-core": "^0.20.4"
   }
 }
