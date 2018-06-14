@@ -12,6 +12,7 @@ const jokes = require('./plugins/jokes/jokes');
 const catfact = require('./plugins/catfact/catfact');
 const facts = require('./plugins/facts/facts');
 const music = require('./plugins/music/music');
+const pubgscores = require('./plugins/pubgstats/pubgstats');
 
 const MusicPlayer = new music(client);
 
@@ -37,6 +38,8 @@ client.on('message', message => {
         MusicPlayer.stop();
       } else if (message.content.startsWith('!skip')) {
         MusicPlayer.skip();
+      } else if (message.content.startsWith('!pubgstats')) {
+        pubgscores(message);
       }
 
     } else {

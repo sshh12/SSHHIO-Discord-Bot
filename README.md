@@ -19,6 +19,9 @@ Get a random (number) fact. Uses [numbersapi.com](http://numbersapi.com/)
 #### Music
 Play a song into a voice channel.
 
+#### PUBG Stats
+A PUBG Leaderboard
+
 ## Setup
 
 1. ```git clone https://github.com/sshh12/SSHHIO-Discord-Bot.git```
