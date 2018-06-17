@@ -40,9 +40,9 @@ module.exports = function scoreboard(message) {
 
             if(stat.label == 'Rating') {
               scoreboard[statGroup.Match].push({
-                'name': user,
-                'score': stat.ValueDec,
-                'percent': stat.percentile
+                "name": user,
+                "score": stat.ValueDec,
+                "percent": stat.percentile
               });
             }
 
@@ -69,14 +69,15 @@ module.exports = function scoreboard(message) {
           text += "\n\n";
 
           fields.push({
-            'name': gamemode.toUpperCase(),
-            'value': text
+            "name": gamemode.toUpperCase(),
+            "value": text,
+            "inline": true
           });
 
         }
 
         let embed = {
-          "color": 15831809,
+          "color": 15843115,
           "footer": {},
           "author": {
             "name": "PUBG Leaderboard"

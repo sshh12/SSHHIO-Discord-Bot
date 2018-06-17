@@ -22,6 +22,9 @@ Play a song into a voice channel.
 #### PUBG Stats
 A PUBG Leaderboard
 
+#### OW Stats
+An Overwatch Leaderboard
+
 ## Setup
 
 1. ```git clone https://github.com/sshh12/SSHHIO-Discord-Bot.git```
