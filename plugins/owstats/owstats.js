@@ -1,5 +1,5 @@
 const request = require('request');
-const owusers = require('./users.json');
+const allUsers = require('../../users.json').users;
 
 let options = {
   headers: {
@@ -10,15 +10,18 @@ let options = {
 
 module.exports = function scoreboard(message) {
 
-  let users = owusers.users;
-
   let finished = 0; // keep track of requests sent
 
   let scoreboard = [];
 
-  for(let user of users) {
+  for(let user of allUsers) {
 
-    request('https://owapi.net/api/v3/u/' + user.replace('#', '-') + '/stats', options, (err, res, body) => {
+    if(!user.overwatch) {
+      finished++;
+      continue;
+    }
+
+    request('https://owapi.net/api/v3/u/' + user.overwatch.replace('#', '-') + '/stats', options, (err, res, body) => {
 
       if (err) {
         return;
@@ -30,7 +33,7 @@ module.exports = function scoreboard(message) {
 
         if(comprank != null) {
           scoreboard.push({
-            "name": user.split('#')[0],
+            "name": user.name,
             "score": comprank
           });
         }
@@ -39,7 +42,7 @@ module.exports = function scoreboard(message) {
 
       finished++;
 
-      if(finished == users.length) { // Last request
+      if(finished == allUsers.length) { // Last request
 
         let fields = [];
 

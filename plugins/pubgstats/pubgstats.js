@@ -1,5 +1,5 @@
 const request = require('request');
-const pubgusers = require('./users.json');
+const allUsers = require('../../users.json').users;
 
 let options = {
   headers: {
@@ -9,19 +9,22 @@ let options = {
 
 module.exports = function scoreboard(message) {
 
-  let users = pubgusers.users;
-
   let finished = 0; // keep track of requests sent
 
   let scoreboard = {
     'solo-fpp': [],
     'duo-fpp': [],
     'squad-fpp': []
-  }
+  };
 
-  for(let user of users) {
+  for(let user of allUsers) {
 
-    request('https://pubgtracker.com/profile/pc/' + user + '?region=na', options, (err, res, body) => {
+    if(!user.pubg) {
+      finished++;
+      continue;
+    }
+
+    request('https://pubgtracker.com/profile/pc/' + user.pubg + '?region=na', options, (err, res, body) => {
 
       if (err) {
         return;
@@ -40,7 +43,7 @@ module.exports = function scoreboard(message) {
 
             if(stat.label == 'Rating') {
               scoreboard[statGroup.Match].push({
-                "name": user,
+                "name": user.name,
                 "score": stat.ValueDec,
                 "percent": stat.percentile
               });
@@ -54,7 +57,7 @@ module.exports = function scoreboard(message) {
 
       finished++;
 
-      if(finished == users.length) { // Last request
+      if(finished == allUsers.length) { // Last request
 
         let fields = [];
 
