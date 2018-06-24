@@ -13,6 +13,7 @@ const catfact = require('./plugins/catfact/catfact');
 const facts = require('./plugins/facts/facts');
 const music = require('./plugins/music/music');
 const pubgscores = require('./plugins/pubgstats/pubgstats');
+const pubgscores2 = require('./plugins/pubgstats/pubgstats2');
 const owscores = require('./plugins/owstats/owstats');
 
 const MusicPlayer = new music(client);
@@ -25,23 +26,25 @@ client.on('message', message => {
 
   if (settings.channels.includes(message.channel.name)) {
 
-    if (message.content.startsWith('!')) {
+    let msg = message.content;
 
-      if (message.content.startsWith('!joke')) {
+    if (msg.startsWith('!')) {
+
+      if (msg.startsWith('!joke')) {
         jokes(message);
-      } else if (message.content.startsWith('!catfact')) {
+      } else if (msg.startsWith('!catfact')) {
         catfact(message);
-      } else if (message.content.startsWith('!fact')) {
+      } else if (msg.startsWith('!fact')) {
         facts(message);
-      } else if (message.content.startsWith('!play ')) {
+      } else if (msg.startsWith('!play ')) {
         MusicPlayer.play(message);
-      } else if (message.content.startsWith('!stop')) {
+      } else if (msg.startsWith('!stop')) {
         MusicPlayer.stop();
-      } else if (message.content.startsWith('!skip')) {
+      } else if (msg.startsWith('!skip')) {
         MusicPlayer.skip();
-      } else if (message.content.startsWith('!pubgstats')) {
-        pubgscores(message);
-      } else if (message.content.startsWith('!owstats')) {
+      } else if (msg.startsWith('!pubgstats')) {
+        msg.includes('2') ? pubgscores2(message) : pubgscores(message);
+      } else if (msg.startsWith('!owstats')) {
         owscores(message);
       }
 

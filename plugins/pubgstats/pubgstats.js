@@ -67,7 +67,7 @@ module.exports = function scoreboard(message) {
 
           let text = "";
           for(let idx in scoreboard[gamemode]) {
-            text += `\`${parseInt(idx) + 1}.\` **${scoreboard[gamemode][idx].score}** ${scoreboard[gamemode][idx].name}\n`;
+            text += `\`${idx < 9 ? '0':''}${parseInt(idx) + 1}.\` **${scoreboard[gamemode][idx].score}** ${scoreboard[gamemode][idx].name}\n`;
           }
           text += "\n\n";
 
